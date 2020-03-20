@@ -1,0 +1,32 @@
+﻿@model Conference.Models.Speaker
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Speaker</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)   @*Esto es un ayudante HTML. hace cosas por defecto pero se apoya en las anotaciones
+                                                     que hayamos hecho, por ejemplo para nombre mostrara: [Display(Name = "Speakercista")]
+                                                     Sino por default usa el nombre de la variable*@
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)      @*Para el email en el modelo definimos que el campo es de tipo email, asi que el ayudante HTML
+                                                    cambia el teclado virtual por ejemplo para que aparezca el @     *@
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.speakerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

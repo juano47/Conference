@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Conference.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -16,6 +18,8 @@ namespace Conference
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<ConferenceContext>(new ConferenceContextInitializer());
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
